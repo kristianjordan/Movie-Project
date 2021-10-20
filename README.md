@@ -19,7 +19,7 @@
 > * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold one check-in meeting with your lab TA in addition to the final demo.
 
 ## Project Description
- > We never created a program similar to a movie recommender so we thought it was a fun idea to create one, but with our own twist. In addition, creating a movie recommender would give us experience for incorporating several search and sorting algorithm. We thought it would be interesting to have a movie app that recommends a certain of genre depending on your mood. 
+ > The movie recommender idea is interesting to us because we all enjoy watching tv shows and movies via netflix and other streaming platforms; we want to learn more about how other shows and movies get recommended to us as users. It’s important because no matter where people go online, items/products are constantly being recommended to them based upon their personal data and interests. We believe that being able to understand the process of how things are recommend is critical to our growth and can prepare us for future jobs. In addition, creating a movie recommender would give us experience for incorporating several search and sorting algorithm. We thought it would be interesting to have a movie app that recommends a certain of genre depending on your mood. 
  > 
  > Languages: c++
  > 
