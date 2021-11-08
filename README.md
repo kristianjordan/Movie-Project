@@ -37,7 +37,7 @@
  >   * Create smaller actionable development tasks as issues and assign them to team members. Place these in the `TODO` column.
  >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
- > Include a class diagram(s) for your project and a description of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
+ > The Movie class has 5 private members which are "Title", "Rating", "DirectorName", "ActorName", and "Duration". It also has respective public getter and setter functions for each of those members. The MovieList class is a singleton class that stores Movie objects in an vector and can access each Movie individually. SearchStrategy and SortStrategy are abstract classes that set the interface for its subclasses that require the implementation of the virtual search and sort function.
  > ![GitHub Logo](projectUML.jpg)
  >  
  > ## Phase III
