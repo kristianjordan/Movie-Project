@@ -27,9 +27,11 @@
  > 
  > Tools: putty, vim, valgrind
  > 
- > Input: User's mood, genre, and rating
+ > (I/O for program will be through terminal)
  > 
- > Output: List of movies that matches the description
+ > Input: User's mood (happy, sad, or neutral), genre (e.g. fantasy, romance, etc), and rating (accepts a number from 0 to 5 [inclusive])
+ > 
+ > Output: List of movies that matches the description given based on the User’s given mood, genre, and rating.
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to:
  > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
