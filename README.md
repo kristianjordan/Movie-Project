@@ -39,7 +39,9 @@
  >   * Create smaller actionable development tasks as issues and assign them to team members. Place these in the `TODO` column.
  >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
- > The Movie class has 5 private members which are "Title", "Rating", "DirectorName", "ActorName", and "Duration". It also has respective public getter and setter functions for each of those members. The MovieList class is a singleton class that stores Movie objects in an vector and can access each Movie individually. SearchStrategy and SortStrategy are abstract classes that set the interface for its subclasses that require the implementation of the virtual search and sort function.
+ > The MovieContext class is a context class that implements a singleton design pattern. Its job is to instantiate the MovieContext object, populate movie data into a vector, return the vector, and set and get the strategies. In addition, it contains a class called Movie, which holds the movies attributes (i.e title, rating, duration) and setter and getter functions. It also contains the SearchStrategy and SortStrategy abstract classes, which both implement a strategy design pattern (holds the concrete algorithms for search and sort).
+  SearchStrategy and SortStrategy are abstract classes that set the interface for its subclasses that require the implementation of the virtual search and sort function. SearchStrategy concrete classes are SearchTitle, SearchGenre, and SearchRating. SortStrategy concrete classes are SortGenre, SortRating, and SortDuration.
+
  > ![GitHub Logo](projectUML.jpg)
  >  
  > ## Phase III
