@@ -111,7 +111,8 @@ private:
      * private functions
      */
     MovieContext(){}; // private constructor
-    // private function that will loop through, read in data, and populate the vector
+
+    // private function that will separate data
     vector<string> tokenize (const string &s, char delim) {
         vector<string> result;
         stringstream ss(s);
@@ -124,6 +125,7 @@ private:
         return result;
     }
 
+    // private function that will loop through, read in data, and populate the vector
     void readMovies()
     {
         /*
@@ -163,7 +165,6 @@ public:
     /*
      * getInstance() function allows only one instantiation of the
      * MovieContext object.
-     * Reads in movies and populates vector of movies once as well
      */
     static MovieContext * getInstance()
     {
@@ -183,6 +184,10 @@ public:
         return movieList;
     }
 
+
+    /*
+     * function that prints data
+    */
     void printMovies ()
     {
         for (int row=0; row < movieList.size(); row++)
