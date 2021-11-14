@@ -188,15 +188,15 @@ public:
     /*
      * function that prints data
     */
-    void printMovies ()
+    void printMovies (vector<Movie*> movies)
     {
-        for (int row=0; row < movieList.size(); row++)
+        for (int row=0; row < movies.size(); row++)
         {
-            cout << "Title: " << movieList.at(row)->get_title() << "\n";
-            cout << "Rating: " << movieList.at(row)->get_rating() << "\n";
-            cout << "Director Name: " << movieList.at(row)->get_directorName() << "\n";
-            cout << "Actor Name: " << movieList.at(row)->get_actorName() << "\n";
-            cout << "Duration: " << movieList.at(row)->get_duration() << " minutes\n";
+            cout << "Title: " << movies.at(row)->get_title() << "\n";
+            cout << "Rating: " << movies.at(row)->get_rating() << "\n";
+            cout << "Director Name: " << movies.at(row)->get_directorName() << "\n";
+            cout << "Actor Name: " << movies.at(row)->get_actorName() << "\n";
+            cout << "Duration: " << movies.at(row)->get_duration() << "\n";
             cout << "\n";
         }
     }

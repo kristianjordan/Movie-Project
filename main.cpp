@@ -6,8 +6,8 @@ using namespace std;
 
 int main() {
     MovieContext * movie = MovieContext::getInstance();
-    movie->getMovie();
-    movie->printMovies();
+    vector<Movie*> movieList = movie->getMovie();
+    movie->printMovies(movieList);
     return 0;
 }
 
