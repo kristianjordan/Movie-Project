@@ -8,6 +8,7 @@ int main() {
     MovieContext * movie = MovieContext::getInstance();
     vector<Movie*> movieList = movie->getMovie();
     movie->printMovies(movieList);
+    movie->freeInstance();
     return 0;
 }
 
