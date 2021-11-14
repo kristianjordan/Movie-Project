@@ -1,5 +1,5 @@
-#ifndef MOVIEPROJECT_MOVIECONTEXT_H
-#define MOVIEPROJECT_MOVIECONTEXT_H
+#ifndef _MOVIECONTEXT_H
+#define _MOVIECONTEXT_H
 #include <fstream>
 #include "Movie.h"
 #include <vector>
@@ -233,5 +233,5 @@ public:
 MovieContext * MovieContext::obj = 0;
 vector<Movie*> MovieContext::movieList;
 
-#endif //MOVIEPROJECT_MOVIECONTEXT_H
+#endif //MOVIECONTEXT_H
 
