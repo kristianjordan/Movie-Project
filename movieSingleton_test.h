@@ -1,6 +1,5 @@
 #ifndef __MOVIESINGLETON_TEST_HPP__
 #define __MOVIESINGLETON_TEST_HPP__
-
 #include "gtest/gtest.h"
 #include <string>
 #include <vector>
@@ -8,8 +7,6 @@
 #include "MovieContext.h"
 using namespace std;
 
-
-// test case for nonzero value
 TEST(MovieTest, MovieDataTest) {
 	// create movie object
 	Movie* movie = new Movie();
@@ -25,6 +22,8 @@ TEST(MovieTest, MovieDataTest) {
 	EXPECT_EQ(movie->get_actorName(), "Joel David Moore, CCH Pounder, Wes Studi");
 	EXPECT_EQ(movie->get_duration(), "178");
 
+	// deallocation
+	delete movie;
 }
 
 TEST(MovieContext, GetInstanceTest) {
@@ -35,7 +34,6 @@ TEST(MovieContext, GetInstanceTest) {
 	MovieContext* newInstance = MovieContext::getInstance();
 
 	EXPECT_EQ(instance->getSearchStrategy(), newInstance->getSearchStrategy());
-
 }
 
 
@@ -44,7 +42,6 @@ TEST(MovieContext, SearchStrategyTest) {
 	SearchStrategy* search = new SearchGenre();
 	movie->setSearchStrategy(search);
 	SearchStrategy* searchHolder = movie->getSearchStrategy();
-
 
 	EXPECT_EQ(searchHolder, search);
 }
@@ -56,8 +53,7 @@ TEST(MovieContext, SortStrategyTest) {
         movie->setSortStrategy(sort);
         SortStrategy* sortHolder = movie->getSortStrategy();
 
-
-        EXPECT_EQ(sortHolder, sort);
+        EXPECT_EQ(sortHolder, sort);	
 }
 
 TEST(MovieContext, GetMovieTest) {
@@ -86,9 +82,9 @@ TEST(MovieContext, GetMovieTest) {
 	EXPECT_EQ(directorName_results, "Sam Mendes");
 	EXPECT_EQ(actorName_results, "Christian Bale, Tom Hardy, Joseph Gordon-Levitt");
 	EXPECT_EQ(duration_results, "");
+
+	movie->freeInstance();
 }
-
-
 
 #endif //__MOVIESINGLETON_TEST_HPP__
 

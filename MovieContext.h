@@ -102,8 +102,8 @@ private:
     /*
      * private variables
      */
-    SearchStrategy * searchStrategy;
-    SortStrategy * sortStrategy;
+    SearchStrategy * searchStrategy = nullptr;
+    SortStrategy * sortStrategy = nullptr;
     static vector<Movie*> movieList; // vector to hold movies
     static MovieContext * obj; // static pointer to MovieContext class
 
@@ -160,8 +160,8 @@ private:
         }
     }
 
-
 public:
+
     /*
      * getInstance() function allows only one instantiation of the
      * MovieContext object.
@@ -182,6 +182,20 @@ public:
         if (movieList.empty())
             readMovies();
         return movieList;
+    }
+
+    ~MovieContext()
+     {
+	for (int i = 0; i < movieList.size(); i++)
+		delete movieList[i];
+	delete sortStrategy;
+	delete searchStrategy;	
+     }
+
+    static void freeInstance()
+    {
+        delete obj;
+        obj = NULL;
     }
 
 
@@ -206,8 +220,14 @@ public:
      */
     void setSearchStrategy(SearchStrategy *search)
     {
+	if (searchStrategy != nullptr)
+	{
+		delete searchStrategy;
+		searchStrategy = nullptr;
+	}
         searchStrategy = search;
     }
+
     SearchStrategy * getSearchStrategy()
     {
         return searchStrategy;
@@ -218,8 +238,14 @@ public:
      */
     void setSortStrategy(SortStrategy *sort)
     {
+	if (sortStrategy != nullptr)
+        {
+                delete sortStrategy;
+                sortStrategy = nullptr;
+        }
         sortStrategy = sort;
     }
+
     SortStrategy * getSortStrategy()
     {
         return sortStrategy;
