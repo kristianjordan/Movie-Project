@@ -1,6 +1,8 @@
-#       CMakeCache.txt
-#       CMakeFiles/
-#       Makefile
-#       cmake_install.cmake
-#       moodvie
+CMakeFiles/
+Makefile
+moodvie
+CMakeCache.txt
+cmake_install.cmake
+lib/
+test
 

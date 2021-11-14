@@ -191,7 +191,7 @@ public:
             cout << "Rating: " << movieList.at(row)->get_rating() << "\n";
             cout << "Director Name: " << movieList.at(row)->get_directorName() << "\n";
             cout << "Actor Name: " << movieList.at(row)->get_actorName() << "\n";
-            cout << "Duration: " << movieList.at(row)->get_duration() << "\n";
+            cout << "Duration: " << movieList.at(row)->get_duration() << " minutes\n";
             cout << "\n";
         }
     }
