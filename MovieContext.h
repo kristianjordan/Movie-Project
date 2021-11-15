@@ -152,6 +152,7 @@ private:
                 movie->set_directorName(data[1]);
                 movie->set_duration(data[3]);
                 movie->set_actorName(data[6] + ", " + data[10] + ", " + data[14]);
+		movie->set_genre(data[9]);
                 movie->set_title(data[11]);
                 movie->set_rating(data[21]);
                 movieList.push_back(movie);
@@ -207,6 +208,7 @@ public:
         for (int row=0; row < movies.size(); row++)
         {
             cout << "Title: " << movies.at(row)->get_title() << "\n";
+	    cout << "Genre: " << movies.at(row)->get_genre() << "\n";
             cout << "Rating: " << movies.at(row)->get_rating() << "\n";
             cout << "Director Name: " << movies.at(row)->get_directorName() << "\n";
             cout << "Actor Name: " << movies.at(row)->get_actorName() << "\n";

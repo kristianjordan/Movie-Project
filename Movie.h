@@ -18,6 +18,7 @@ private:
     string director_name;
     string actor_name;
     string duration;
+    string genre;
 public:
 
     /*
@@ -43,6 +44,10 @@ public:
     {
         duration = dur;
     }
+    void set_genre(string mood)
+    {
+        genre = mood;
+    }    
 
     /*
      * movie class getters
@@ -66,6 +71,10 @@ public:
     string get_duration()
     {
         return duration;
+    }
+    string get_genre()
+    {
+        return genre;
     }
 };
 
