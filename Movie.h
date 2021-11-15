@@ -1,5 +1,5 @@
-#ifndef MOVIEPROJECT_MOVIE_H
-#define MOVIEPROJECT_MOVIE_H
+#ifndef _MOVIE_H
+#define _MOVIE_H
 #include <string>
 using namespace std;
 
@@ -78,5 +78,5 @@ public:
     }
 };
 
-#endif //MOVIEPROJECT_MOVIE_H
+#endif //_MOVIE_H
 

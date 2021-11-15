@@ -16,13 +16,13 @@ using namespace std;
 class SearchStrategy
 {
 public:
-    virtual vector<Movie> search(vector<Movie>, string) = 0;
+    virtual vector<Movie*> search(vector<Movie*>, string) = 0;
 };
 
 class SearchGenre : public SearchStrategy
 {
 public:
-    vector<Movie> search(vector<Movie> m, string s)
+    vector<Movie*> search(vector<Movie*> m, string s)
     {
         cout << "Search by genre" << endl;
         return m;
@@ -32,7 +32,7 @@ public:
 class SearchTitle : public SearchStrategy
 {
 public:
-    vector<Movie> search(vector<Movie> m, string s)
+    vector<Movie*> search(vector<Movie*> m, string s)
     {
         cout << "Search by title" << endl;
         return m;
@@ -42,7 +42,7 @@ public:
 class SearchRating : public SearchStrategy
 {
 public:
-    vector<Movie> search(vector<Movie> m, string s)
+    vector<Movie*> search(vector<Movie*> m, string s)
     {
         cout << "Search by title" << endl;
         return m;
@@ -58,13 +58,13 @@ public:
 class SortStrategy
 {
 public:
-    virtual vector<Movie> search(vector<Movie>,string) = 0;
+    virtual vector<Movie*> search(vector<Movie*>,string) = 0;
 };
 
 class SortGenre : public SortStrategy
 {
 public:
-    vector<Movie> search(vector<Movie> m, string s)
+    vector<Movie*> search(vector<Movie*> m, string s)
     {
         cout << "Sort by genre" << endl;
         return m;
@@ -74,7 +74,7 @@ public:
 class SortRating : public SortStrategy
 {
 public:
-    vector<Movie> search(vector<Movie> m, string s)
+    vector<Movie*> search(vector<Movie*> m, string s)
     {
         cout << "Sort by rating" << endl;
         return m;
@@ -84,7 +84,7 @@ public:
 class SortDuration : public SortStrategy
 {
 public:
-    vector<Movie> search(vector<Movie> m, string s)
+    vector<Movie*> search(vector<Movie*> m, string s)
     {
         cout << "Sort by duration" << endl;
         return m;
