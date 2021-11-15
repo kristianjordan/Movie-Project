@@ -1,0 +1,8 @@
+mock_main
+test
+cmake_install.cmake
+Makefile
+CMakeFiles/
+CMakeCache.txt
+lib/
+bin/
