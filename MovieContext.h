@@ -58,13 +58,13 @@ public:
 class SortStrategy
 {
 public:
-    virtual vector<Movie*> search(vector<Movie*>) = 0;
+    virtual vector<Movie*> sort(vector<Movie*>) = 0;
 };
 
 class SortGenre : public SortStrategy
 {
 public:
-    vector<Movie*> search(vector<Movie*> m)
+    vector<Movie*> sort(vector<Movie*> m)
     {
         cout << "Sort by genre" << endl;
         return m;
@@ -74,7 +74,7 @@ public:
 class SortRating : public SortStrategy
 {
 public:
-    vector<Movie*> search(vector<Movie*> m)
+    vector<Movie*> sort(vector<Movie*> m)
     {
         cout << "Sort by rating" << endl;
         return m;
@@ -84,7 +84,7 @@ public:
 class SortDuration : public SortStrategy
 {
 public:
-    vector<Movie*> search(vector<Movie*> m)
+    vector<Movie*> sort(vector<Movie*> m)
     {
         cout << "Sort by duration" << endl;
         return m;
