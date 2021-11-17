@@ -150,7 +150,10 @@ private:
                 data = tokenize(line, ',');
                 Movie *movie = new Movie();
                 movie->set_directorName(data[1]);
-                movie->set_duration(data[3]);
+		stringstream intValue(data[3]);
+                int duration = 0;
+                intValue >> duration;
+                movie->set_duration(duration);
                 movie->set_actorName(data[6] + ", " + data[10] + ", " + data[14]);
 		movie->set_genre(data[9]);
                 movie->set_title(data[11]);

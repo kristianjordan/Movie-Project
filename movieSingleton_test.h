@@ -14,13 +14,13 @@ TEST(MovieTest, MovieDataTest) {
 	movie->set_rating("PG-13");
 	movie->set_directorName("James Cameron");
 	movie->set_actorName("Joel David Moore, CCH Pounder, Wes Studi");
-	movie->set_duration("178");	
+	movie->set_duration(178);	
 
 	EXPECT_EQ(movie->get_title(), "Avatar"); 
 	EXPECT_EQ(movie->get_rating(), "PG-13");
 	EXPECT_EQ(movie->get_directorName(), "James Cameron");
 	EXPECT_EQ(movie->get_actorName(), "Joel David Moore, CCH Pounder, Wes Studi");
-	EXPECT_EQ(movie->get_duration(), "178");
+	EXPECT_EQ(movie->get_duration(), 178);
 
 	// deallocation
 	delete movie;

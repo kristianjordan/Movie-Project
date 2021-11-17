@@ -17,7 +17,7 @@ private:
     string rating;
     string director_name;
     string actor_name;
-    string duration;
+    int duration;
     string genre;
 public:
 
@@ -40,7 +40,7 @@ public:
     {
         actor_name = actor;
     }
-    void set_duration(string dur)
+    void set_duration(int dur)
     {
         duration = dur;
     }
@@ -68,7 +68,7 @@ public:
     {
         return actor_name;
     }
-    string get_duration()
+    int get_duration()
     {
         return duration;
     }
