@@ -2,95 +2,11 @@
 #define _MOVIECONTEXT_H
 #include <fstream>
 #include "Movie.h"
+#include "SortStrategy.h"
+#include "SearchStrategy.h"
 #include <vector>
 #include <sstream>
 using namespace std;
-
-
-/*
- * ***********************************************************************************
- * SearchStrategy abstract class that search strategies will inherit from
- * NOT yet complete, waiting on partners to implement this code
- * ************************************************************************************
- */
-class SearchStrategy
-{
-public:
-    virtual vector<Movie*> search(vector<Movie*>, string) = 0;
-};
-
-class SearchGenre : public SearchStrategy
-{
-public:
-    vector<Movie*> search(vector<Movie*> m, string s)
-    {
-        cout << "Search by genre" << endl;
-        return m;
-    }
-};
-
-class SearchTitle : public SearchStrategy
-{
-public:
-    vector<Movie*> search(vector<Movie*> m, string s)
-    {
-        cout << "Search by title" << endl;
-        return m;
-    }
-};
-
-class SearchRating : public SearchStrategy
-{
-public:
-    vector<Movie*> search(vector<Movie*> m, string s)
-    {
-        cout << "Search by title" << endl;
-        return m;
-    }
-};
-
-/*
- * ***********************************************************************************
- * SortStrategy abstract class that sort strategies will inherit from
- * NOT yet complete, waiting on partners to implement this code
- * ************************************************************************************
- */
-class SortStrategy
-{
-public:
-    virtual vector<Movie*> sort(vector<Movie*>) = 0;
-};
-
-class SortGenre : public SortStrategy
-{
-public:
-    vector<Movie*> sort(vector<Movie*> m)
-    {
-        cout << "Sort by genre" << endl;
-        return m;
-    }
-};
-
-class SortRating : public SortStrategy
-{
-public:
-    vector<Movie*> sort(vector<Movie*> m)
-    {
-        cout << "Sort by rating" << endl;
-        return m;
-    }
-};
-
-class SortDuration : public SortStrategy
-{
-public:
-    vector<Movie*> sort(vector<Movie*> m)
-    {
-        cout << "Sort by duration" << endl;
-        return m;
-    }
-};
-
 
 /*
  * Context class that implements singleton design pattern

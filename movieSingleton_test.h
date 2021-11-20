@@ -73,7 +73,7 @@ TEST(MovieContext, GetMovieTest) {
 	string actorName_results;
         actorName_results = movieListings[3]->get_actorName();
 	
-	string duration_results;
+	int duration_results;
         duration_results = movieListings[4]->get_duration();
 
 
@@ -81,7 +81,7 @@ TEST(MovieContext, GetMovieTest) {
 	EXPECT_EQ(rating_results, "PG-13");
 	EXPECT_EQ(directorName_results, "Sam Mendes");
 	EXPECT_EQ(actorName_results, "Christian Bale, Tom Hardy, Joseph Gordon-Levitt");
-	EXPECT_EQ(duration_results, "");
+	EXPECT_EQ(duration_results, 0);
 
 	movie->freeInstance();
 }
