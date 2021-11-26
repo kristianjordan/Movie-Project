@@ -61,4 +61,62 @@ class SortRatings : public Sort
 	}
 };
 
+class SortDuration : public Sort
+{
+	public:
+	virtual int sort_partition(std::vector<Movie>& m, int start, int end)
+	{
+		int pivot = start + (end - start)/2;
+		int pivotVal = m.at(pivot).get_duration();
+		int low = start, high = end;
+		while(low <= high)
+		{
+			while(m.at(low).get_duration() > pivotVal)
+			{
+				++low;
+			}
+			while(m.at(high).get_duration() < pivotVal)
+			{
+				--high;
+			}
+			if(low <= high)
+			{
+				std::iter_swap(m.begin() + low, m.begin() + high);
+				++low;
+				--high;
+			}
+		}
+		return low;
+	}
+};
+
+class SortGenre : public Sort
+{
+	public:
+	virtual int sort_partition(std::vector<Movie>& m, int start, int end)
+	{
+		int pivot = start + (end - start)/2;
+		std::string pivotVal = m.at(pivot).get_genre();
+		int low = start, high = end;
+		while(low <= high)
+		{
+			while((m.at(low).get_genre()).compare(pivotVal) < 0)
+			{
+				++low;
+			}
+			while((m.at(high).get_genre()).compare(pivotVal) > 0)
+			{
+				--high;
+			}
+			if(low <= high)
+			{
+				std::iter_swap(m.begin() + low, m.begin() + high);
+				++low;
+				--high;
+			}
+		}
+		return low;
+	}
+};
+
 #endif
