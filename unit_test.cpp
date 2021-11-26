@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 
+#include "movieSingleton_test.h"
 #include "sortstrategy_test.hpp"
 
 int main(int argc, char **argv) {
