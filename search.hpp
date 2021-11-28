@@ -51,5 +51,60 @@ public:
  } 	            
 };
 
+//Search by title which inherits from SearchStrategy
+class SearchTitle: public SearchStrategy {
+
+public:
+	SearchTitle(){}
+	vector<Movie*> search(vector<Movie*> m, string s)
+ { 
+	vector<Movie*> titleMovieHolder; //making new vector so that original vector<Movie*> data is not manipulated
+	for(Movie* movie : m)//looping through the vector
+	{	
+		//
+ 		string rating = movie->get_rating();
+		string searchStr = s;
+		upper_string(rating);
+		upper_string(searchStr);
+		
+		//if search criteria matches any part of the genre
+		 if (rating.find(searchStr) != std::string::npos)
+            {
+                titleMovieHolder.push_back(movie);
+            }
+        }
+// return the genreMovieHolder 
+//genreMovieHolder will contain a vector of pointers to movie objects which all contain the search criteria)
+       return titleMovieHolder;
+ } 	            
+};
+
+//Search by title which inherits from SearchStrategy
+class SearchRating: public SearchStrategy {
+
+public:
+	SearchRating(){}
+	vector<Movie*> search(vector<Movie*> m, string s)
+ { 
+	vector<Movie*> ratingMovieHolder; //making new vector so that original vector<Movie*> data is not manipulated
+	for(Movie* movie : m)//looping through the vector
+	{	
+		//
+ 		string rating = movie->get_rating();
+		string searchStr = s;
+		upper_string(rating);
+		upper_string(searchStr);
+		
+		//if search criteria matches any part of the genre
+		 if (rating.find(searchStr) != std::string::npos)
+            {
+                ratingMovieHolder.push_back(movie);
+            }
+        }
+// return the genreMovieHolder 
+//genreMovieHolder will contain a vector of pointers to movie objects which all contain the search criteria)
+       return ratingMovieHolder;
+ } 	            
+};
 
 #endif
