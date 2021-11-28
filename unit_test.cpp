@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-
+#include "search_test.hpp"
 #include "movieSingleton_test.h"
 #include "sortstrategy_test.hpp"
 

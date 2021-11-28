@@ -3,8 +3,8 @@
 
 #include <fstream>
 #include "Movie.h"
+#include "search.hpp"
 #include "sortstrategy.hpp"
-#include "SearchStrategy.h"
 #include <vector>
 #include <sstream>
 
