@@ -62,7 +62,7 @@ public:
 	for(Movie* movie : m)//looping through the vector
 	{	
 		//
- 		string rating = movie->get_rating();
+ 		string title = movie->get_title();
 		string searchStr = s;
 		upper_string(rating);
 		upper_string(searchStr);
