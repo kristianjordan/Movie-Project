@@ -1,5 +1,5 @@
 #ifndef __SEARCH_HPP
-#define __SEARCH_HPPA
+#define __SEARCH_HPP
 
 #include <string>
 #include <iostream>
