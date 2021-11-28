@@ -128,6 +128,7 @@ public:
     {
         for (int row=0; row < movies.size(); row++)
         {
+	    cout << endl;
             cout << "Title: " << movies.at(row)->get_title() << "\n";
 	    cout << "Genre: " << movies.at(row)->get_genre() << "\n";
             cout << "Rating: " << movies.at(row)->get_rating() << "\n";
