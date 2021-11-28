@@ -20,49 +20,48 @@ TEST(SortingRatings, RandomVector)
 	std::srand(std::time(nullptr));
 	for(int i = 0; i < 10; ++i)
 	{
+		std::string current = std::to_string((double)rand() / rand());
 		Movie* m = new Movie;
-		m->set_rating(std::to_string((double)rand() / rand()));
-		v.push_back(m);	
+		m->set_rating(current);
+		v.push_back(m);
 	}
 	SortStrategy* ss = new SortRating;
-	std::vector<Movie*> m = ss->sort(v);
-	for(int i = 0; i < m.size() - 1; ++i)
+	v = ss->sort(v);
+	for(int i = 0; i < v.size() - 1; ++i)
 	{
-		EXPECT_GE(std::stod(m.at(i)->get_rating()), std::stod(m.at(i + 1)->get_rating()));
+		EXPECT_GE(std::stod(v.at(i)->get_rating()), std::stod(v.at(i + 1)->get_rating()));
 	}
 	delete ss;
+	for(auto i : v)
+	{
+		delete i;
+	}
 }
 TEST(SortingRatings, RandomDuplicatesVector)
 {
 	std::vector<Movie*> v;
 	std::srand(std::time(nullptr));
-	int count = 0;
-	std::string s;
 	for(int i = 0; i < 5; ++i)
 	{
 		std::string current = std::to_string((double)rand() / rand());
 		Movie* m = new Movie;
+		Movie* duplicate = new Movie;
 		m->set_rating(current);
-		if(count == 0)
-		{
-			s =	current;
-		}
-		if(count == 2)
-		{
-			m->set_rating(s);
-			v.push_back(m);	
-			count = 0;
-		}
+		duplicate->set_rating(current);
 		v.push_back(m);
-		++count;
+		v.push_back(duplicate);
 	}
 	SortStrategy* ss = new SortRating;
-	std::vector<Movie*> m = ss->sort(v);
-	for(int i = 0; i < m.size() - 1; ++i)
+	v = ss->sort(v);
+	for(int i = 0; i < v.size() - 1; ++i)
 	{
-		EXPECT_GE(std::stod(m.at(i)->get_rating()), std::stod(m.at(i + 1)->get_rating())); 
+		EXPECT_GE(std::stod(v.at(i)->get_rating()), std::stod(v.at(i + 1)->get_rating())); 
 	}
 	delete ss;
+	for(auto i : v)
+	{
+		delete i;
+	}
 }
 
 TEST(SortingDuration, EmptyVector)
@@ -89,29 +88,25 @@ TEST(SortingDuration, RandomDurations)
 		EXPECT_GE(m.at(i)->get_duration(), m.at(i + 1)->get_duration());
 	}
 	delete ss;
+	for(auto i : m)
+	{
+		delete i;
+	}
+	m.clear();
 }
 TEST(SortingDuration, RandomDuplicatesDurations)
 {
 	std::vector<Movie*> v;
 	std::srand(std::time(nullptr));
-	int count = 0, duplicate = 0;
 	for(int i = 0; i < 5; ++i)
 	{
 		int current = (((double)rand() / rand()) * 15);
 		Movie* m = new Movie;
+		Movie* duplicate = new Movie;
 		m->set_duration(current);
-		if(count == 0)
-		{
-			duplicate =	current;
-		}
-		if(count == 2)
-		{
-			m->set_duration(duplicate);
-			v.push_back(m);	
-			count = 0;
-		}
+		duplicate->set_duration(current);
 		v.push_back(m);
-		++count;
+		v.push_back(duplicate);
 	}
 	SortStrategy* ss = new SortDuration;
 	std::vector<Movie*> m = ss->sort(v);
@@ -120,6 +115,11 @@ TEST(SortingDuration, RandomDuplicatesDurations)
 		EXPECT_GE(m.at(i)->get_duration(), m.at(i + 1)->get_duration()); 
 	}
 	delete ss;
+	for(auto i : m)
+	{
+		delete i;
+	}
+	m.clear();
 }
 
 TEST(SortingByGenre, EmptyVector)
@@ -148,31 +148,26 @@ TEST(SortingByGenre, Multiples)
 		EXPECT_LE(m.at(i)->get_genre().compare(m.at(i + 1)->get_genre()), 0);
 	}
 	delete ss;
+	for(auto i : m)
+	{
+		delete i;
+	}
+	m.clear();
 }
 TEST(SortingByGenre, Duplicates)
 {
 	std::vector<Movie*> v;
 	std::srand(std::time(nullptr));
 	std::vector<std::string> str = {"Adventure", "Fantasy", "Futuristic", "BioTech", "Modern", "Doomed", "Nuclear", "Horror", "Basic", "LandMine", "Action", "Drama", "Comedy", "Thriller"};
-	int count = 0;
-	std::string s;
 	for(int i = 0; i < 5; ++i)
 	{
 		std::string current = str.at(rand() % str.size());
 		Movie* m = new Movie;
+		Movie* duplicate = new Movie;
 		m->set_genre(current);
-		if(count == 0)
-		{
-			s =	current;
-		}
-		if(count == 2)
-		{
-			m->set_genre(s);
-			v.push_back(m);	
-			count = 0;
-		}
+		duplicate->set_genre(current);
 		v.push_back(m);
-		++count;
+		v.push_back(duplicate);
 	}
 	SortStrategy* ss = new SortGenre;
 	std::vector<Movie*> m = ss->sort(v);
@@ -181,6 +176,11 @@ TEST(SortingByGenre, Duplicates)
 		EXPECT_LE(m.at(i)->get_genre().compare(m.at(i + 1)->get_genre()), 0);
 	}
 	delete ss;
+	for(auto i : m)
+	{
+		delete i;
+	}
+	m.clear();
 }
 
 #endif		
