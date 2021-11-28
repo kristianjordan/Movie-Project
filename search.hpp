@@ -40,13 +40,13 @@ public:
 		upper_string(searchStr);
 		
 		//if search criteria matches any part of the genre
-		 if (rating.find(searchStr) != std::string::npos)
+		 if (genre.find(searchStr) != std::string::npos)
             {
                 genreMovieHolder.push_back(movie);
             }
         }
-// return the genreMovieHolder 
-//genreMovieHolder will contain a vector of pointers to movie objects which all contain the search criteria)
+	// return the genreMovieHolder 
+	// genreMovieHolder will contain a vector of pointers to movie objects which all contain the search criteria
        return genreMovieHolder;
  } 	            
 };
@@ -67,14 +67,14 @@ public:
 		upper_string(title);
 		upper_string(searchStr);
 		
-		//if search criteria matches any part of the genre
-		 if (rating.find(searchStr) != std::string::npos)
+		//if search criteria matches any part of the title
+		 if (title.find(searchStr) != std::string::npos)
             {
                 titleMovieHolder.push_back(movie);
             }
         }
-// return the titleMovieHolder 
-//titleMovieHolder will contain a vector of pointers to movie objects which all contain the search criteria)
+	// return the titleMovieHolder 
+	// titleMovieHolder will contain a vector of pointers to movie objects which all contain the search criteria
        return titleMovieHolder;
  } 	            
 };
@@ -95,14 +95,15 @@ public:
 		upper_string(rating);
 		upper_string(searchStr);
 		
-		//if search criteria matches any part of the genre
+		//if search criteria matches any part of the rating
 		 if (rating.find(searchStr) != std::string::npos)
             {
                 ratingMovieHolder.push_back(movie);
             }
         }
-// return the ratingMovieHolder 
-//ratingMovieHolder will contain a vector of pointers to movie objects which all contain the search criteria)
+
+	// return the ratingMovieHolder 
+	// ratingMovieHolder will contain a vector of pointers to movie objects which all contain the search criteria
        return ratingMovieHolder;
  } 	            
 };
