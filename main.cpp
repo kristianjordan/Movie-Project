@@ -26,7 +26,7 @@ int main() {
 
 
     cout << endl << endl << setw(40) << "Moodvie Recommender" << endl;
-    cout << setw(52) << "By: Kristian Jordan, Selena Aria, Gary Zeng" << endl << endl;
+    cout << setw(52) << "By: Kristian Jordan, Selena Aria, Garry Zeng" << endl << endl;
     /*
      * Display menu for searching, and take in user input
     */
