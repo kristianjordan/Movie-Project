@@ -1,16 +1,19 @@
+#ifndef __SEARCH_HPP
+#define __SEARCH_HPPA
+
 #include <string>
 #include <iostream>
 #include <algorithm>
-
+#include <vector>
 class SearchStrategy {
 public:
- virtual vector<Movie> search(vector<Movie>, string) = 0;
+ virtual vector<Movie*> search(vector<Movie*>, string) = 0;
 };
 
 //if 
 class search:: public SearchStrategy{
 	public:
-	virtual vector<Movie> search(vector<Movie> m, string s)
+	virtual vector<Movie*> search(vector<Movie*> m, string s)
 	for( int i = 0; i <  m.size(); i++){
  		string str = m[i];
 		if (str == s)
@@ -24,7 +27,7 @@ class search:: public SearchStrategy{
 class SearchGenre:: public search {
 
 	public:
-	virtual vector<Movie> search(vector<Movie> m, string s)
+	virtual vector<Movie*> search(vector<Movie*> m, string s)
 	for( int i = 0; i <  m.size(); i++){
  		string str = m[i];
 		if (str == s)
@@ -39,7 +42,7 @@ class SearchGenre:: public search {
 class SearchTitle:: public search {
 
 	public:
-	virtual vector<Movie> search(vector<Movie> m, string s)
+	virtual vector<Movie*> search(vector<Movie*> m, string s)
 	for( int i = 0; i <  m.size(); i++){
  		string str = m[i];
 		if (str == s)
@@ -54,7 +57,7 @@ class SearchTitle:: public search {
 class SearchRating:: public search {
 
 	public:
-	virtual vector<Movie> search(vector<Movie> m, string s)
+	virtual vector<Movie*> search(vector<Movie*> m, string s)
 	for( int i = 0; i <  m.size(); i++){
  		string str = m[i];
 		if (str == s)
@@ -65,5 +68,5 @@ class SearchRating:: public search {
 	return 0; // return 0 if it didn't found the specific string in the vector
 
 }
-
+#endif
 
