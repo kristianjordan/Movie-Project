@@ -1,6 +1,10 @@
 #include "gtest/gtest.h"
 #include "search.hpp"
+#include "Movie.h"
+#include "MovieContext.h"
 #include <sstream>
+#include <string>
+#include <vector>
 
 TEST(TestingSearchGenre, emptyString){
 std::vector<Movie*>m;
