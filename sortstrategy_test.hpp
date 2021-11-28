@@ -12,6 +12,7 @@ TEST(SortingRatings, EmptyVector)
 	std::vector<Movie> v;
 	SortStrategy* ss = new SortRatings;
 	EXPECT_TRUE((ss->sort(v).empty()));
+	delete ss;
 }
 TEST(SortingRatings, RandomVector)
 {
@@ -29,6 +30,7 @@ TEST(SortingRatings, RandomVector)
 	{
 		EXPECT_GE(std::stod(m.at(i).get_rating()), std::stod(m.at(i + 1).get_rating()));
 	}
+	delete ss;
 }
 TEST(SortingRatings, RandomDuplicatesVector)
 {
@@ -60,6 +62,7 @@ TEST(SortingRatings, RandomDuplicatesVector)
 	{
 		EXPECT_GE(std::stod(m.at(i).get_rating()), std::stod(m.at(i + 1).get_rating())); 
 	}
+	delete ss;
 }
 
 TEST(SortingDuration, EmptyVector)
@@ -67,6 +70,7 @@ TEST(SortingDuration, EmptyVector)
 	std::vector<Movie> v;
 	SortStrategy* ss = new SortDuration;
 	EXPECT_TRUE((ss->sort(v).empty()));
+	delete ss;
 }
 TEST(SortingDuration, RandomDurations)
 {
@@ -84,6 +88,7 @@ TEST(SortingDuration, RandomDurations)
 	{
 		EXPECT_GE(m.at(i).get_duration(), m.at(i + 1).get_duration());
 	}
+	delete ss;
 }
 TEST(SortingDuration, RandomDuplicatesDurations)
 {
@@ -114,6 +119,7 @@ TEST(SortingDuration, RandomDuplicatesDurations)
 	{
 		EXPECT_GE(m.at(i).get_duration(), m.at(i + 1).get_duration()); 
 	}
+	delete ss;
 }
 
 TEST(SortingByGenre, EmptyVector)
@@ -121,6 +127,7 @@ TEST(SortingByGenre, EmptyVector)
 	std::vector<Movie> v;
 	SortStrategy* ss = new SortRatings;
 	EXPECT_TRUE((ss->sort(v).empty()));
+	delete ss;
 }
 TEST(SortingByGenre, Multiples)
 {
@@ -140,6 +147,7 @@ TEST(SortingByGenre, Multiples)
 	{
 		EXPECT_LE(m.at(i).get_genre().compare(m.at(i + 1).get_genre()), 0);
 	}
+	delete ss;
 }
 TEST(SortingByGenre, Duplicates)
 {
@@ -172,6 +180,7 @@ TEST(SortingByGenre, Duplicates)
 	{
 		EXPECT_LE(m.at(i).get_genre().compare(m.at(i + 1).get_genre()), 0);
 	}
+	delete ss;
 }
 
 #endif		
