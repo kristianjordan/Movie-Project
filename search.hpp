@@ -73,13 +73,13 @@ public:
                 titleMovieHolder.push_back(movie);
             }
         }
-// return the genreMovieHolder 
-//genreMovieHolder will contain a vector of pointers to movie objects which all contain the search criteria)
+// return the titleMovieHolder 
+//titleMovieHolder will contain a vector of pointers to movie objects which all contain the search criteria)
        return titleMovieHolder;
  } 	            
 };
 
-//Search by title which inherits from SearchStrategy
+//Search by rating which inherits from SearchStrategy
 class SearchRating: public SearchStrategy {
 
 public:
@@ -101,8 +101,8 @@ public:
                 ratingMovieHolder.push_back(movie);
             }
         }
-// return the genreMovieHolder 
-//genreMovieHolder will contain a vector of pointers to movie objects which all contain the search criteria)
+// return the ratingMovieHolder 
+//ratingMovieHolder will contain a vector of pointers to movie objects which all contain the search criteria)
        return ratingMovieHolder;
  } 	            
 };
