@@ -1,12 +1,13 @@
 #ifndef _MOVIECONTEXT_H
 #define _MOVIECONTEXT_H
+
 #include <fstream>
 #include "Movie.h"
-#include "SortStrategy.h"
-//#include "SearchStrategy.h"
 #include "search.hpp"
+#include "sortstrategy.hpp"
 #include <vector>
 #include <sstream>
+
 using namespace std;
 
 /*
@@ -67,12 +68,12 @@ private:
                 data = tokenize(line, ',');
                 Movie *movie = new Movie();
                 movie->set_directorName(data[1]);
-		stringstream intValue(data[3]);
+				stringstream intValue(data[3]);
                 int duration = 0;
                 intValue >> duration;
                 movie->set_duration(duration);
                 movie->set_actorName(data[6] + ", " + data[10] + ", " + data[14]);
-		movie->set_genre(data[9]);
+				movie->set_genre(data[9]);
                 movie->set_title(data[11]);
                 movie->set_rating(data[21]);
                 movieList.push_back(movie);
