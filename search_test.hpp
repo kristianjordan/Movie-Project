@@ -4,16 +4,16 @@
 
 #include "search.hpp"
 #include "Movie.h"
-#include "MovieContext.h"
 #include <sstream>
 #include <string>
 #include <vector>
 
 TEST(TestingSearchGenre, emptyString){
-std::vector<Movie*>m;
-SearchStrategy* s = new SearchGenre();
-EXPECT_TRUE((s->search(m).empty()));
-};
+std::vector<Movie*> g;
+SearchStrategy* s = new SearchGenre;
+EXPECT_EQ("",s->search(g));
+delete s;
+}
 
 /*
 TEST(TestingSearchGenre, inputNotFound){

@@ -1,87 +1,55 @@
-#ifndef __SEARCH_HPP
-#define __SEARCH_HPP
+#ifndef __SEARCH_HPP__
+#define __SEARCH_HPP__
 
 #include <string>
+#include <cstring>
 #include <iostream>
 #include <algorithm>
 #include <vector>
 #include "Movie.h"
 
+//abstract class that other searches will inherit from
 class SearchStrategy {
+//using this function will help with case sensitivity when doing comparisons
+protected:
+	void upper_string(std::string& str)
+	{
+	 for (int i = 0; i<str.length();i++)
+	  str[i] = toupper(str[i]);
+	}
+
 public:
  virtual vector<Movie*> search(vector<Movie*>, string) = 0;
 };
 
-//if 
-class Search: public SearchStrategy{
-	public:
-	virtual vector<Movie*> search(vector<Movie*> m, string s){
-	for(int i = 0; i <  m.size(); i++){
- 		string str = m[i];
-		if (str == s)
-		{
-		  return s;//it will return the string being searched for if it exists 1
-		}
 
-		else
-		{
-		return 0; // return 0 if it didn't found the specific string in the vector 1
-		}
-  }
-}
+//Search by genre which inherits from SearchStrategy
+class SearchGenre: public SearchStrategy {
+
+public:
+	SearchGenre(){}
+	vector<Movie*> search(vector<Movie*> m, string s)
+ { 
+	vector<Movie*> genreMovieHolder; //making new vector so that original vector<Movie*> data is not manipulated
+	for(Movie* movie : m)//looping through the vector
+	{	
+		//
+ 		string rating = movie->get_rating();
+		string searchStr = s;
+		upper_string(rating);
+		upper_string(searchStr);
+		
+		//if search criteria matches any part of the genre
+		 if (rating.find(searchStr) != std::string::npos)
+            {
+                genreMovieHolder.push_back(movie);
+            }
+        }
+// return the genreMovieHolder 
+//genreMovieHolder will contain a vector of pointers to movie objects which all contain the search criteria)
+       return genreMovieHolder;
+ } 	            
 };
 
-class SearchGenre: public Search {
 
-	public:
-	virtual vector<Movie*> Search(vector<Movie*> m, string s);
-	for(int i = 0; i <  m.size(); i++){
- 		string str = m[i];
-		if (str == s)
-		{
-		  return s;//it will return the string being searched for if it exists 2
-		}
-	
-	
-	}
-		return 0; // return 0 if it didn't found the specific string in the vector 1
-
-};
-
-class SearchTitle: public Search {
-
-	public:
-	virtual vector<Movie*> search(vector<Movie*> m, string s){
-	for(int i = 0; i <  m.size(); i++){
- 		string str = m[i];
-		if (str == s)
-		{
-		  return s;//it will return the string being searched for if it exists 3
-		}
-		else
-		{
-		return 0; // return 0 if it didn't found the specific string in the vector 1
-		}
- }
-}
-};
-
-class SearchRating: public Search {
-
-	public:
-	virtual vector<Movie*> search(vector<Movie*> m, string s){
-	for(int i = 0; i <  m.size(); i++){
- 		string str = m[i];
-		if (str == s)
-		{
-		  return s;//it will return the string being searched for if it exists 4 
-		}
-		else
-		{
-		return 0; // return 0 if it didn't found the specific string in the vector 1
-		}
- }
-}
-};
 #endif
-
