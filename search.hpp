@@ -1,6 +1,7 @@
 #ifndef __SEARCH_HPP__
 #define __SEARCH_HPP__
 
+#include <map>
 #include <string>
 #include <cstring>
 #include <iostream>
@@ -106,5 +107,4 @@ public:
        return ratingMovieHolder;
  } 	            
 };
-
 #endif
