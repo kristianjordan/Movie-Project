@@ -40,7 +40,7 @@ public:
 		upper_string(searchStr);
 		
 		//if search criteria matches any part of the genre
-		 if (rating.find(searchStr) != std::string::npos)
+		 if (genre.find(searchStr) != std::string::npos)
             {
                 genreMovieHolder.push_back(movie);
             }
@@ -68,7 +68,7 @@ public:
 		upper_string(searchStr);
 		
 		//if search criteria matches any part of the genre
-		 if (rating.find(searchStr) != std::string::npos)
+		 if (title.find(searchStr) != std::string::npos)
             {
                 titleMovieHolder.push_back(movie);
             }
