@@ -34,9 +34,9 @@ public:
 	for(Movie* movie : m)//looping through the vector
 	{	
 		//
- 		string rating = movie->get_rating();
+ 		string genre = movie->get_genre();
 		string searchStr = s;
-		upper_string(rating);
+		upper_string(genre);
 		upper_string(searchStr);
 		
 		//if search criteria matches any part of the genre
@@ -64,7 +64,7 @@ public:
 		//
  		string title = movie->get_title();
 		string searchStr = s;
-		upper_string(rating);
+		upper_string(title);
 		upper_string(searchStr);
 		
 		//if search criteria matches any part of the genre
