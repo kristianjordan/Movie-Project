@@ -48,17 +48,17 @@ TEST(MovieContext, SearchStrategyTest) {
 
 
 TEST(MovieContext, SortStrategyTest) {
-        MovieContext* movie = MovieContext::getInstance();
-        SortStrategy* sort = new SortGenre();
-        movie->setSortStrategy(sort);
-        SortStrategy* sortHolder = movie->getSortStrategy();
+	MovieContext* movie = MovieContext::getInstance();
+	SortStrategy* sort = new SortGenre();
+    movie->setSortStrategy(sort);
+    SortStrategy* sortHolder = movie->getSortStrategy();
 
-        EXPECT_EQ(sortHolder, sort);	
+    EXPECT_EQ(sortHolder, sort);	
 }
 
 TEST(MovieContext, GetMovieTest) {
-        MovieContext* movie = MovieContext::getInstance();
-        vector<Movie*> movieListings;
+    MovieContext* movie = MovieContext::getInstance(); 
+	vector<Movie*> movieListings;
 	movieListings = movie->getMovie();
 
 	string title_results;
@@ -77,7 +77,7 @@ TEST(MovieContext, GetMovieTest) {
         duration_results = movieListings[4]->get_duration();
 
 
-        EXPECT_EQ(title_results, "Avatar");
+    EXPECT_EQ(title_results, "Avatar");
 	EXPECT_EQ(rating_results, "PG-13");
 	EXPECT_EQ(directorName_results, "Sam Mendes");
 	EXPECT_EQ(actorName_results, "Christian Bale, Tom Hardy, Joseph Gordon-Levitt");
