@@ -10,9 +10,9 @@
 																							
 TEST(SortingRatings, EmptyVector)
 {
-	//std::vector<Movie*> v;
+	std::vector<Movie*> v;
 	SortStrategy* ss = new SortRating;
-	//EXPECT_TRUE((ss->sort(v).empty()));
+	EXPECT_TRUE((ss->sort(v).empty()));
 	delete ss;
 }
 TEST(SortingRatings, RandomVector)
