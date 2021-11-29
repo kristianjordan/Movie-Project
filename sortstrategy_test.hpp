@@ -4,7 +4,6 @@
 #include "Movie.h"
 #include "sortstrategy.hpp"
 
-#include <iostream>
 #include <cstdlib>
 #include <ctime>
 																							
