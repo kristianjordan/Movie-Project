@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <cstring>
+#include <algorithm>
 using namespace std;
 
 /*
@@ -40,10 +41,11 @@ public:
 		upper_string(searchStr);
 		
 		//if search criteria matches any part of the genre
-		 if (genre.find(searchStr) != std::string::npos)
+	if (strcasecmp(genre.c_str(), searchStr.c_str()) == 0)
             {
                 genreMovieHolder.push_back(movie);
             }
+		else s.compare(movie->get_genre());
         }
         return genreMovieHolder;
 
@@ -66,10 +68,11 @@ public:
 		upper_string(searchStr);
 		
 		//if search criteria matches any part of the genre
-		 if (title.find(searchStr) != std::string::npos)
+	 if (strcasecmp(title.c_str(), searchStr.c_str()) == 0)
             {
                 titleMovieHolder.push_back(movie);
             }
+		else s.compare(movie->get_title());
         }
         return titleMovieHolder;
     }
@@ -88,12 +91,13 @@ public:
             string searchStr = s;
             upper_string(rating);
             upper_string(searchStr);
-            if (strcasecmp(rating.c_str(), searchStr.c_str()))
+            if (strcasecmp(rating.c_str(), searchStr.c_str()) == 0)
             {
                 ratingMovieHolder.push_back(movie);
             }
+		else s.compare(movie->get_rating());
         }
-        return ratingMovieHolder;
+       return ratingMovieHolder; 
     }
 };
 

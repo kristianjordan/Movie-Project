@@ -54,6 +54,7 @@ int main() {
         {
             again = true;
             cout << "Invalid input. Try again.";
+	    cin.ignore(numeric_limits<streamsize>::max(),'\n');
         }
 
         else if (search == '1')
@@ -118,6 +119,7 @@ int main() {
             {
                 again = true;
                 cout << "Invalid input. Try again.";
+		 cin.ignore(numeric_limits<streamsize>::max(),'\n');
             }
 
             else if (mood == '1')
@@ -165,6 +167,8 @@ int main() {
         {
             again = true;
             cout << "Invalid input. Try again.";
+	    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
         }
         if (sort == '1')
         {
