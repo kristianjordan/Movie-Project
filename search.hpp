@@ -27,17 +27,20 @@ public:
 class SearchGenre : public SearchStrategy
 {
 public:
-    SearchGenre(){}
-    vector<Movie*> search(vector<Movie*> m, string s)
-    {
-        vector<Movie*> genreMovieHolder;
-        for (Movie* movie : m)
-        {
-            string rating = movie->get_rating();
-            string searchStr = s;
-            upper_string(rating);
-            upper_string(searchStr);
-            if (rating.find(searchStr) != std::string::npos)
+	SearchGenre(){}
+	vector<Movie*> search(vector<Movie*> m, string s)
+ { 
+	vector<Movie*> genreMovieHolder; //making new vector so that original vector<Movie*> data is not manipulated
+	for(Movie* movie : m)//looping through the vector
+	{	
+		//
+ 		string genre = movie->get_genre();
+		string searchStr = s;
+		upper_string(genre);
+		upper_string(searchStr);
+		
+		//if search criteria matches any part of the genre
+		 if (genre.find(searchStr) != std::string::npos)
             {
                 genreMovieHolder.push_back(movie);
             }
@@ -50,17 +53,20 @@ public:
 class SearchTitle : public SearchStrategy
 {
 public:
-    SearchTitle(){}
-    vector<Movie*> search(vector<Movie*> m, string s)
-    {
-        vector<Movie*> titleMovieHolder;
-        for (Movie* movie : m)
-        {
-            string title = movie->get_title();
-            string searchStr = s;
-            upper_string(title);
-            upper_string(searchStr);
-            if (title.find(searchStr) != std::string::npos)
+	SearchTitle(){}
+	vector<Movie*> search(vector<Movie*> m, string s)
+ { 
+	vector<Movie*> titleMovieHolder; //making new vector so that original vector<Movie*> data is not manipulated
+	for(Movie* movie : m)//looping through the vector
+	{	
+		//
+ 		string title = movie->get_title();
+		string searchStr = s;
+		upper_string(title);
+		upper_string(searchStr);
+		
+		//if search criteria matches any part of the genre
+		 if (title.find(searchStr) != std::string::npos)
             {
                 titleMovieHolder.push_back(movie);
             }
@@ -123,5 +129,5 @@ public:
         return result;
     }
 };
-#endif //_SEARCH_HPP
 
+#endif //_SEARCH_HPP
