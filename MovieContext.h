@@ -76,6 +76,9 @@ private:
 				movie->set_genre(data[9]);
                 movie->set_title(data[11]);
                 movie->set_rating(data[21]);
+		if ((movie->get_rating() == "") || (movie->get_rating() == "Not Rated") || (movie->get_rating() == "Unrated") ||
+			(movie->get_rating() == "Approved") || (movie->get_rating() == "Passed"))
+			movie->set_rating("Unrated"); 
                 movieList.push_back(movie);
             }
             infile.close();

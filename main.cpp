@@ -10,7 +10,8 @@ void displaySearchMenu()
     cout << endl << "Enter how you would like to search (#1-3): " << endl;
     cout << "1. Search by Title." << endl;
     cout << "2. Search by Genre." << endl;
-    cout << "3. Search by Rating (G, PG, PG-13, R, NC-17)." << endl << endl;
+    cout << "3. Search by Rating (G, PG, PG-13, R, NC-17)." << endl;
+    cout << "4. Search by Mood." << endl << endl;
 }
 
 void displaySortMenu()
@@ -20,28 +21,39 @@ void displaySortMenu()
     cout << "2. Sort by Duration." << endl;
     cout << "3. Sort by Rating (G, PG, PG-13, R, NC-17)." << endl << endl;
 }
+
+void displayMoodMenu()
+{
+    cout << endl << "Enter your mood:" << endl;
+    cout << "1. Happy." << endl;
+    cout << "2. Sad." << endl;
+    cout << "3. Neutral" << endl << endl;
+}
+
 int main() {
     // creating instance of MovieContext
     MovieContext * movie = MovieContext::getInstance();
 
 
     cout << endl << endl << setw(40) << "Moodvie Recommender" << endl;
-    cout << setw(52) << "By: Kristian Jordan, Selena Arias, Gary Zeng" << endl << endl;
-    /*
-     * Display menu for searching, and take in user input
-    */
-    char search;
+    cout << setw(52) << "By: Kristian Jordan, Selena Aria, Garry Zeng" << endl << endl;
+
+    char mood;
     bool again = false;
+    vector<Movie*> moodResults;
+
+    char search;
     vector<Movie*> searchResults;
-    vector<Movie*> sortResults;
+    vector<Movie*> sortSearchResults;
+    vector<Movie*> sortMoodResults;
     do
     {
         displaySearchMenu();
         cin >> search;
-        if ((search < '1') || (search > '3'))
+        if ((search < '1') || (search > '4'))
         {
             again = true;
-            cout << "Invalid input. Try again." << endl;
+            cout << "Invalid input. Try again.";
         }
 
         else if (search == '1')
@@ -98,6 +110,47 @@ int main() {
             // the vector of Movies
             again = false;
         }
+        else if (search == '4')
+        {
+            displayMoodMenu();
+            cin >> mood;
+            if ((mood < '1') || (mood > '3'))
+            {
+                again = true;
+                cout << "Invalid input. Try again.";
+            }
+
+            else if (mood == '1')
+            {
+                SearchStrategy * searchList = new SearchMood(); // create pointer to SearchRating strategy
+                movie->setSearchStrategy(searchList); // set strategy in MovieContext to SearchRating
+                SearchStrategy* search = movie->getSearchStrategy(); // create another SearchStrategy pointer
+                vector<Movie*> movieList = movie->getMovie(); // create new vector of Movie pointers
+                // and assign it to the vector
+                moodResults = search->search(movieList, "happy");
+                again = false;
+            }
+            else if (mood == '2')
+            {
+                SearchStrategy * searchList = new SearchMood(); // create pointer to SearchRating strategy
+                movie->setSearchStrategy(searchList); // set strategy in MovieContext to SearchRating
+                SearchStrategy* search = movie->getSearchStrategy(); // create another SearchStrategy pointer
+                vector<Movie*> movieList = movie->getMovie(); // create new vector of Movie pointers
+                // and assign it to the vector
+                moodResults = search->search(movieList, "sad");
+                again = false;
+            }
+            else if (mood == '3')
+            {
+                SearchStrategy * searchList = new SearchMood(); // create pointer to SearchRating strategy
+                movie->setSearchStrategy(searchList); // set strategy in MovieContext to SearchRating
+                SearchStrategy* search = movie->getSearchStrategy(); // create another SearchStrategy pointer
+                vector<Movie*> movieList = movie->getMovie(); // create new vector of Movie pointers
+                // and assign it to the vector
+                moodResults = search->search(movieList, "neutral");
+                again = false;
+            }
+        }
     } while(again);
 
     /*
@@ -111,7 +164,7 @@ int main() {
         if ((sort < '1') || (sort > '3'))
         {
             again = true;
-            cout << "Invalid input. Try again." << endl;
+            cout << "Invalid input. Try again.";
         }
         if (sort == '1')
         {
@@ -120,7 +173,8 @@ int main() {
             SortStrategy * sortHolder = movie->getSortStrategy();
             vector<Movie*> movieList = movie->getMovie(); // create new vector of Movie pointers and assign it to the vector
             // that holds the repo of movies
-            sortResults = sortHolder->sort(searchResults);
+            sortSearchResults = sortHolder->sort(searchResults);
+            sortMoodResults = sortHolder->sort(moodResults);
             again = false;
         }
         else if (sort == '2')
@@ -130,7 +184,8 @@ int main() {
             SortStrategy * sortHolder = movie->getSortStrategy();
             vector<Movie*> movieList = movie->getMovie(); // create new vector of Movie pointers and assign it to the vector
             // that holds the repo of movies
-            sortResults = sortHolder->sort(searchResults);
+            sortSearchResults = sortHolder->sort(searchResults);
+            sortMoodResults = sortHolder->sort(moodResults);
             again = false;
         }
         else if (sort == '3')
@@ -140,11 +195,13 @@ int main() {
             SortStrategy * sortHolder = movie->getSortStrategy();
             vector<Movie*> movieList = movie->getMovie(); // create new vector of Movie pointers and assign it to the vector
             // that holds the repo of movies
-            sortResults = sortHolder->sort(searchResults);
+            sortSearchResults = sortHolder->sort(searchResults);
+            sortMoodResults = sortHolder->sort(moodResults);
             again = false;
         }
     } while (again);
-    movie->printMovies(sortResults);
+    movie->printMovies(sortMoodResults);
+    movie->printMovies(sortSearchResults);
     movie->freeInstance();
     return 0;
 }

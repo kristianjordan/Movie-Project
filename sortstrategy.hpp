@@ -42,11 +42,11 @@ class SortRating : public Sort
 		int low = start, high = end;
 		while(low <= high)
 		{
-			while(std::stod(m.at(low)->get_rating()) > std::stod(pivotVal))
+			while((m.at(low)->get_rating()) > (pivotVal))
 			{
 				++low;
 			}
-			while(std::stod(m.at(high)->get_rating()) < std::stod(pivotVal))
+			while((m.at(high)->get_rating()) < (pivotVal))
 			{
 				--high;
 			}
