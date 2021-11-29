@@ -137,7 +137,10 @@ public:
             cout << "Rating: " << movies.at(row)->get_rating() << "\n";
             cout << "Director Name: " << movies.at(row)->get_directorName() << "\n";
             cout << "Actor Name: " << movies.at(row)->get_actorName() << "\n";
-            cout << "Duration: " << movies.at(row)->get_duration() << "\n";
+            if (!(movies.at(row)->get_duration() == 0))
+                cout << "Duration: " << movies.at(row)->get_duration() << "\n";
+            else
+                cout << "Duration: " << "\n";
             cout << "\n";
         }
     }
