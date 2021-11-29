@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <map>
 
 class SortStrategy
 {
@@ -34,19 +35,33 @@ class Sort : public SortStrategy
 
 class SortRating : public Sort
 {
+	private:
+	map<std::string, int> ratings = { {"Unrated", -1},
+									{"TV-Y", 0},
+									{"TV-Y7", 1},
+									{"TV-FY FV", 2},
+									{"G", 3},
+									{"TV-G", 4},
+									{"PG", 5},
+									{"TV-PG", 6},
+									{"PG-13", 7},
+									{"TV-14", 8},
+									{"R", 9},
+									{"NC-17", 10},
+									{"TV-MA", 11} };	
 	public:
 	virtual int sort_partition(std::vector<Movie*>& m, int start, int end)
 	{
 		int pivot = start + (end - start)/2;
-		std::string pivotVal = m.at(pivot)->get_rating();
+		int pivotVal = ratings[m.at(pivot)->get_rating()];
 		int low = start, high = end;
 		while(low <= high)
 		{
-			while(std::stod(m.at(low)->get_rating()) > std::stod(pivotVal))
+			while(ratings[m.at(low)->get_rating()] > pivotVal)
 			{
 				++low;
 			}
-			while(std::stod(m.at(high)->get_rating()) < std::stod(pivotVal))
+			while(ratings[(m.at(high)->get_rating())] < pivotVal)
 			{
 				--high;
 			}
@@ -91,7 +106,7 @@ class SortDuration : public Sort
 };
 
 class SortGenre : public Sort
-{
+{	
 	public:
 	virtual int sort_partition(std::vector<Movie*>& m, int start, int end)
 	{
@@ -100,7 +115,7 @@ class SortGenre : public Sort
 		int low = start, high = end;
 		while(low <= high)
 		{
-			while((m.at(low)->get_genre()).compare(pivotVal) < 0)
+			while((m.at(low)->get_genre()).compare(pivotVal) < 0 )
 			{
 				++low;
 			}

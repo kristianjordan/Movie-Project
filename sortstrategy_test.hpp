@@ -18,9 +18,11 @@ TEST(SortingRatings, RandomVector)
 {
 	std::vector<Movie*> v;
 	std::srand(std::time(nullptr));
+	map<std::string, int> ratings = { {"Unrated", -1},{"TV-Y", 0},{"TV-Y7", 1},{"TV-FY FV", 2},{"G", 3},{"TV-G", 4},{"PG", 5},{"TV-PG", 6},{"PG-13", 7},{"TV-14", 8},{"R", 9},{"NC-17", 10},{"TV-MA", 11} };	
+	vector<std::string> rate = {"Unrated", "TV-Y", "TV-Y7", "TV-PG", "PG-13", "NC-17", "TV-MA", "R", "G", "PG"};
 	for(int i = 0; i < 10; ++i)
 	{
-		std::string current = std::to_string((double)rand() / rand());
+		std::string current = rate.at(rand() % rate.size());
 		Movie* m = new Movie;
 		m->set_rating(current);
 		v.push_back(m);
@@ -29,7 +31,7 @@ TEST(SortingRatings, RandomVector)
 	v = ss->sort(v);
 	for(int i = 0; i < v.size() - 1; ++i)
 	{
-		EXPECT_GE(std::stod(v.at(i)->get_rating()), std::stod(v.at(i + 1)->get_rating()));
+		EXPECT_GE(ratings[(v.at(i)->get_rating())], ratings[(v.at(i + 1)->get_rating())]);
 	}
 	delete ss;
 	for(auto i : v)
@@ -37,13 +39,15 @@ TEST(SortingRatings, RandomVector)
 		delete i;
 	}
 }
-TEST(SortingRatings, RandomDuplicatesVector)
+TEST(SortingRatings, DuplicatesVector)
 {
 	std::vector<Movie*> v;
 	std::srand(std::time(nullptr));
+	map<std::string, int> ratings = { {"Unrated", -1},{"TV-Y", 0},{"TV-Y7", 1},{"TV-FY FV", 2},{"G", 3},{"TV-G", 4},{"PG", 5},{"TV-PG", 6},{"PG-13", 7},{"TV-14", 8},{"R", 9},{"NC-17", 10},{"TV-MA", 11} };	
+	vector<std::string> rate = {"Unrated", "TV-Y", "TV-Y7", "TV-PG", "PG-13", "NC-17", "TV-MA", "R", "G", "PG"};
 	for(int i = 0; i < 5; ++i)
 	{
-		std::string current = std::to_string((double)rand() / rand());
+		std::string current = rate.at(rand() % rate.size());
 		Movie* m = new Movie;
 		Movie* duplicate = new Movie;
 		m->set_rating(current);
@@ -55,7 +59,7 @@ TEST(SortingRatings, RandomDuplicatesVector)
 	v = ss->sort(v);
 	for(int i = 0; i < v.size() - 1; ++i)
 	{
-		EXPECT_GE(std::stod(v.at(i)->get_rating()), std::stod(v.at(i + 1)->get_rating())); 
+		EXPECT_GE(ratings[(v.at(i)->get_rating())], ratings[(v.at(i + 1)->get_rating())]); 
 	}
 	delete ss;
 	for(auto i : v)
