@@ -1,32 +1,31 @@
-#ifndef __SEARCH_HPP__
-#define __SEARCH_HPP__
-
-#include <map>
+#ifndef _SEARCH_HPP
+#define _SEARCH_HPP
+#include "Movie.h"
+#include <vector>
 #include <string>
 #include <cstring>
-#include <iostream>
-#include <algorithm>
-#include <vector>
-#include "Movie.h"
+using namespace std;
 
-//abstract class that other searches will inherit from
-class SearchStrategy {
-//using this function will help with case sensitivity when doing comparisons
+/*
+ * ***********************************************************************************
+ * SearchStrategy abstract class that search strategies will inherit from
+ * NOT yet complete, waiting on partners to implement this code
+ * ************************************************************************************
+ */
+class SearchStrategy
+{
 protected:
-	void upper_string(std::string& str)
-	{
-	 for (int i = 0; i<str.length();i++)
-	  str[i] = toupper(str[i]);
-	}
-
+    void upper_string(std::string& str) const
+    {
+        for (int i=0; i<str.length(); i++)
+            str[i] = toupper(str[i]);
+    }
 public:
- virtual vector<Movie*> search(vector<Movie*>, string) = 0;
+    virtual vector<Movie*> search(vector<Movie*>, string) = 0;
 };
 
-
-//Search by genre which inherits from SearchStrategy
-class SearchGenre: public SearchStrategy {
-
+class SearchGenre : public SearchStrategy
+{
 public:
 	SearchGenre(){}
 	vector<Movie*> search(vector<Movie*> m, string s)
@@ -46,15 +45,13 @@ public:
                 genreMovieHolder.push_back(movie);
             }
         }
-// return the genreMovieHolder 
-//genreMovieHolder will contain a vector of pointers to movie objects which all contain the search criteria)
-       return genreMovieHolder;
- } 	            
+        return genreMovieHolder;
+
+    }
 };
 
-//Search by title which inherits from SearchStrategy
-class SearchTitle: public SearchStrategy {
-
+class SearchTitle : public SearchStrategy
+{
 public:
 	SearchTitle(){}
 	vector<Movie*> search(vector<Movie*> m, string s)
@@ -74,37 +71,63 @@ public:
                 titleMovieHolder.push_back(movie);
             }
         }
-// return the titleMovieHolder 
-//titleMovieHolder will contain a vector of pointers to movie objects which all contain the search criteria)
-       return titleMovieHolder;
- } 	            
+        return titleMovieHolder;
+    }
 };
 
-//Search by rating which inherits from SearchStrategy
-class SearchRating: public SearchStrategy {
-
+class SearchRating : public SearchStrategy
+{
 public:
-	SearchRating(){}
-	vector<Movie*> search(vector<Movie*> m, string s)
- { 
-	vector<Movie*> ratingMovieHolder; //making new vector so that original vector<Movie*> data is not manipulated
-	for(Movie* movie : m)//looping through the vector
-	{	
-		//
- 		string rating = movie->get_rating();
-		string searchStr = s;
-		upper_string(rating);
-		upper_string(searchStr);
-		
-		//if search criteria matches any part of the genre
-		 if (rating.find(searchStr) != std::string::npos)
+    SearchRating(){}
+    vector<Movie*> search(vector<Movie*> m, string s)
+    {
+        vector<Movie*> ratingMovieHolder;
+        for (Movie* movie : m)
+        {
+            string rating = movie->get_rating();
+            string searchStr = s;
+            upper_string(rating);
+            upper_string(searchStr);
+            if (strcasecmp(rating.c_str(), searchStr.c_str()))
             {
                 ratingMovieHolder.push_back(movie);
             }
         }
-// return the ratingMovieHolder 
-//ratingMovieHolder will contain a vector of pointers to movie objects which all contain the search criteria)
-       return ratingMovieHolder;
- } 	            
+        return ratingMovieHolder;
+    }
 };
-#endif
+
+class SearchMood : public SearchStrategy {
+public:
+    SearchMood() {}
+    vector<Movie *> search(vector<Movie *> m, string s) {
+        vector<Movie *> result;
+        vector<string> genreMatch;
+        // mood is happy
+        if (strcasecmp(s.c_str(), "happy") == 0) {
+            genreMatch.push_back("COMEDY");
+            genreMatch.push_back("ADVENTURE");
+        }
+            // mood is sad
+        else if (strcasecmp(s.c_str(), "sad") == 0) {
+            genreMatch.push_back("DRAMA");
+            genreMatch.push_back("THRILLER");
+        } else if (strcasecmp(s.c_str(), "neutral") == 0) { // mood is neutral
+            genreMatch.push_back("COMEDY");
+            genreMatch.push_back("ACTION");
+            genreMatch.push_back("ROMANCE");
+        }
+        for (Movie *movie : m) {
+            string genres = movie->get_genre();
+            upper_string(genres);
+            for (string match : genreMatch)
+                if (genres.find(match) != std::string::npos) {
+                    result.push_back(movie);
+                    break;
+                }
+        }
+        return result;
+    }
+};
+
+#endif //_SEARCH_HPP
