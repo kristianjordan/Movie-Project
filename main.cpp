@@ -36,7 +36,7 @@ int main() {
 
 
     cout << endl << endl << setw(40) << "Moodvie Recommender" << endl;
-    cout << setw(52) << "By: Kristian Jordan, Selena Aria, Garry Zeng" << endl << endl;
+    cout << setw(52) << "By: Kristian Jordan, Selena Arias, Gary Zeng" << endl << endl;
 
     char mood;
     bool again = false;
