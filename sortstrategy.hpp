@@ -4,11 +4,12 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <map>
+#include <unordered_map>
 
 class SortStrategy
 {
 	public:
+	virtual ~SortStrategy(){};
 	virtual std::vector<Movie*> sort(std::vector<Movie*>) = 0;
 };
 
@@ -36,20 +37,24 @@ class Sort : public SortStrategy
 class SortRating : public Sort
 {
 	private:
-	map<std::string, int> ratings = { {"Unrated", -1},
-									{"TV-Y", 0},
-									{"TV-Y7", 1},
-									{"TV-FY FV", 2},
-									{"G", 3},
-									{"TV-G", 4},
-									{"PG", 5},
-									{"TV-PG", 6},
-									{"PG-13", 7},
-									{"TV-14", 8},
-									{"R", 9},
-									{"NC-17", 10},
-									{"TV-MA", 11} };	
+	std::unordered_map<std::string, int> ratings = { {"Unrated", -1},
+														{"TV-Y", 0},
+														{"TV-Y7", 1},
+														{"TV-FY FV", 2},
+														{"G", 3},
+														{"TV-G", 4},
+														{"PG", 5},
+														{"TV-PG", 6},
+														{"PG-13", 7},
+														{"TV-14", 8},
+														{"R", 9},
+														{"NC-17", 10},
+														{"TV-MA", 11} };	
 	public:
+	~SortRating()
+	{
+		ratings.clear();
+	}
 	virtual int sort_partition(std::vector<Movie*>& m, int start, int end)
 	{
 		int pivot = start + (end - start)/2;
