@@ -64,7 +64,7 @@
  ## Installation/Usage
  > Clone this repository to Hammer by using the following command: `git clone --recursive <final-HTTPS-url>`
  > 
- > Using the CMake build system, run the following command on the terminal to build: `$ Cmake3 .`
+ > Using the CMake build system, run the following command on the terminal to build: `$ cmake3 .`
  > 
  >Once the Makefile has been generated, in order to execute the Makefile run the following command: `$ make`
  >
