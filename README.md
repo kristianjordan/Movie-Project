@@ -42,8 +42,19 @@
  ## Screenshots
  > Screenshots of the input/output after running your application
  > 
- > Input of searching the title of the movie while sorting by genre.
+ > Input/Output of searching the title of the movie while sorting by genre.
  > ![TitleMovieInputSortGenre](https://user-images.githubusercontent.com/91562468/143991287-771dcf7c-6557-474f-b90b-505d94acb877.PNG)
+ > 
+ > Input of search by horror genre and sorting by rating.
+ > ![SearchGenreHorrorSortRating](https://user-images.githubusercontent.com/91562468/143992901-04c6819a-2cd1-414a-bfb5-17736855210a.PNG)
+ > Output results.
+ > ![OutputSearchHorrorSortRating](https://user-images.githubusercontent.com/91562468/143993412-048ed41a-5a18-4bbe-b26b-75d2c1ad89bb.PNG)
+ > 
+ > Input/Ouput of searching by rating G and sorting by rating.
+ > ![SearchRatingGSortDuration](https://user-images.githubusercontent.com/91562468/143993877-6b3ad7c5-aa22-4279-a972-385010847e54.PNG)
+ > 
+
+
 
 
 
