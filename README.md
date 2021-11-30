@@ -45,4 +45,5 @@
  > Instructions on installing and running your application
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ > With the use of Valgrind, we incorporated the Memcheck tool to find errors and issues with memory leaks. We made sure to use the "valgrind --leak-check=full <executable>" for both test executable and moodvie executable. Tests were created for the search strategy, sort strategy, and for the singleton design. 
  
