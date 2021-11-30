@@ -48,7 +48,7 @@
  > Input of search by horror genre and sorting by rating.
  > ![SearchGenreHorrorSortRating](https://user-images.githubusercontent.com/91562468/143992901-04c6819a-2cd1-414a-bfb5-17736855210a.PNG)
  > 
- > Output results.
+ > Output results of search by horror genre and sort by rating.
  > ![OutputSearchHorrorSortRating](https://user-images.githubusercontent.com/91562468/143993412-048ed41a-5a18-4bbe-b26b-75d2c1ad89bb.PNG)
  > 
  > Input/Ouput of searching by rating G and sorting by rating.
