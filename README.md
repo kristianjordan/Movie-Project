@@ -25,7 +25,7 @@
  > Output: List of movies that matches the description given based on the User’s given mood, genre, and rating.
 
 ## Class Diagram
- > The MovieContext class is a context class that implements a singleton design pattern. Its job is to instantiate the MovieContext object, populate movie data into a vector, return the vector, and set and get the strategies. In addition, it contains a class called Movie, which holds the movies attributes (i.e title, rating, duration) and setter and getter functions. It also contains the SearchStrategy and SortStrategy abstract classes, which both implement a strategy design pattern (holds the concrete algorithms for search and sort).SearchStrategy and SortStrategy set the interface for its subclasses that require the implementation of a virtual search and sort function. SearchStrategy concrete classes are SearchTitle, SearchGenre, SearchRating, and SearchMood. SortStrategy concrete classes are SortGenre, SortRating, and SortDuration. We chose to implement MovieContext using the singleton design, due to its ability to instantiate the class once. Doing so helps us write better code, as it allows the repository of movies not to be recreated and manipulated. As for the SearchStrategy and SortStrategy classes, using a strategy design made the most sense. We have four different ways of searching and three different ways of sorting, with only the strategy of how we search and sort that changes.
+ > The MovieContext class is a context class that implements a singleton design pattern. Its job is to instantiate the MovieContext object, populate movie data into a vector, return the vector, and set and get the strategies. In addition, it contains a class called Movie, which holds the movies attributes (i.e title, rating, duration) and setter and getter functions. It also contains the SearchStrategy and SortStrategy abstract classes, which both implement a strategy design pattern (holds the concrete algorithms for search and sort).SearchStrategy and SortStrategy set the interface for its subclasses that require the implementation of a virtual search and sort function. SearchStrategy concrete classes are SearchTitle, SearchGenre, SearchRating, and SearchMood. SortStrategy concrete classes are SortGenre, SortRating, and SortDuration. We chose to implement MovieContext using the singleton design, due to its ability to instantiate the class once. Doing so helps us write better code, as it allows the repository of movies not to be recreated and manipulated. As for the SearchStrategy and SortStrategy classes, using a strategy design made the most sense. We have three different ways of searching and sorting, with only the strategy of how we search and sort that changes.
 
  > ![GitHub Logo](projectUML.jpg)
  >  
@@ -67,7 +67,20 @@
 
 
  ## Installation/Usage
- > Instructions on installing and running your application
+ > Clone this repository to Hammer by using the following command: `git clone --recursive <final-HTTPS-url>`
+ > 
+ > Using the CMake build system, run the following command on the terminal to build: `$ Cmake3 .`
+ > 
+ >Once the Makefile has been generated, in order to execute the Makefile run the following command: `$ make`
+ >
+ >Once the build percentage is at 100%, run the executable: `./moodvie`
+ >
+ >In order to run the tests, run the executable: `./test`
+ >
+ >To test if `./moodvie` executable has any memory leaks or errors run the command: `valgrind --leak-check=full ./moodvie`
+ >
+ >The process is the same for `./test` executable, run the command: `valgrind --leak-check=full ./test`
+ > 
  ## Testing
  > 
  > With the use of Valgrind, we incorporated the Memcheck tool to find errors and issues with memory leaks. We made sure to use the "valgrind --leak-check=full" for both test executable and moodvie executable. Tests were created for the search strategy, sort strategy, and for the singleton design.
