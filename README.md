@@ -64,5 +64,18 @@
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  > 
- > With the use of Valgrind, we incorporated the Memcheck tool to find errors and issues with memory leaks. We made sure to use the "valgrind --leak-check=full <executable>" for both test executable and moodvie executable. Tests were created for the search strategy, sort strategy, and for the singleton design. 
+ > With the use of Valgrind, we incorporated the Memcheck tool to find errors and issues with memory leaks. We made sure to use the "valgrind --leak-check=full" for both test executable and moodvie executable. Tests were created for the search strategy, sort strategy, and for the singleton design.
+ > 
+ > 
+ > Testing the test executable for memory leaks.
+ > ![TestingTestMemCheck1](https://user-images.githubusercontent.com/91562468/143995764-8f360773-f1ce-47ba-bc79-e8ef1696bb0e.PNG)
+ > ![TestingTestMemCheck2](https://user-images.githubusercontent.com/91562468/143995887-37d64f8c-a133-47d8-a0a9-236c672546bb.PNG)
+ > 
+ > 
+ > Testing the moodvie executable for memory leaks.
+ > ![TestingMoodvieMemCheck1](https://user-images.githubusercontent.com/91562468/143996403-df70c5bf-d934-4e4e-abea-ca8bf69bb1df.PNG)
+ > ![TestingMoodvieMemCheck2](https://user-images.githubusercontent.com/91562468/143996421-b5763911-d97d-4337-ab3b-32e10307813b.PNG)
+
+ > 
+ 
  
