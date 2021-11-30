@@ -68,11 +68,10 @@ public:
 		upper_string(searchStr);
 		
 		//if search criteria matches any part of the genre
-	 if (strcasecmp(title.c_str(), searchStr.c_str()) == 0)
+	 if (title.find(searchStr) != std::string::npos)
             {
                 titleMovieHolder.push_back(movie);
             }
-		else s.compare(movie->get_title());
         }
         return titleMovieHolder;
     }
