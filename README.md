@@ -20,7 +20,7 @@
  > 
  > (I/O for program will be through terminal)
  > 
- > Input: User's mood (happy, sad, or neutral), genre (e.g. fantasy, romance, etc), and rating (accepts a number from 0 to 5 [inclusive])
+ > Input: User's mood (happy, sad, or neutral), genre (e.g. fantasy, romance, etc), and Motion Picture Association film rating system (accepts rating of G, PG, PG-13, R, NC-17, etc).
  > 
  > Output: List of movies that matches the description given based on the User’s given mood, genre, and rating.
 
@@ -40,7 +40,6 @@
  > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
  ## Screenshots
- > Screenshots of the input/output after running your application
  > 
  > Input/Output of searching the title of the movie while sorting by genre.
  > ![TitleMovieInputSortGenre](https://user-images.githubusercontent.com/91562468/143991287-771dcf7c-6557-474f-b90b-505d94acb877.PNG)
@@ -54,6 +53,14 @@
  > Input/Ouput of search by rating G and sort by duration.
  > ![SearchRatingGSortDuration](https://user-images.githubusercontent.com/91562468/143993877-6b3ad7c5-aa22-4279-a972-385010847e54.PNG)
  > 
+ > Input of search by neutral mood and sort by genre.
+ > ![TestingMoodNeutralSortGenre1](https://user-images.githubusercontent.com/91562468/144001420-e9da49e9-a517-4cfe-adb3-6146497ea8b7.PNG)
+ > 
+ > Output of search by neutral mood and sort by genre.
+ > ![TestingMoodNeutralSortGenre2](https://user-images.githubusercontent.com/91562468/144001452-525c270c-02bc-40f3-af50-1a1d84caf981.PNG)
+ > 
+
+
 
 
 
@@ -62,7 +69,6 @@
  ## Installation/Usage
  > Instructions on installing and running your application
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  > 
  > With the use of Valgrind, we incorporated the Memcheck tool to find errors and issues with memory leaks. We made sure to use the "valgrind --leak-check=full" for both test executable and moodvie executable. Tests were created for the search strategy, sort strategy, and for the singleton design.
  > 
