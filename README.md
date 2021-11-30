@@ -41,6 +41,11 @@
  
  ## Screenshots
  > Screenshots of the input/output after running your application
+ > Input of searching the title of the movie while sorting by genre.
+ > ![TitleMovieInputSortGenre](https://user-images.githubusercontent.com/91562468/143991287-771dcf7c-6557-474f-b90b-505d94acb877.PNG)
+
+
+
  ## Installation/Usage
  > Instructions on installing and running your application
  ## Testing
