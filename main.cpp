@@ -51,10 +51,12 @@ int main() {
         displaySearchMenu();
         cin >> search;
         if ((search < '1') || (search > '4'))
-        {
+        {   cin.clear();	
             again = true;
             cout << "Invalid input. Try again.";
 	    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+	    
+	
         }
 
         else if (search == '1')
@@ -116,7 +118,7 @@ int main() {
             displayMoodMenu();
             cin >> mood;
             if ((mood < '1') || (mood > '3'))
-            {
+            {   cin.clear();
                 again = true;
                 cout << "Invalid input. Try again.";
 		 cin.ignore(numeric_limits<streamsize>::max(),'\n');
@@ -164,7 +166,7 @@ int main() {
         displaySortMenu();
         cin >> sort;
         if ((sort < '1') || (sort > '3'))
-        {
+        {   cin.clear();
             again = true;
             cout << "Invalid input. Try again.";
 	    cin.ignore(numeric_limits<streamsize>::max(),'\n');
