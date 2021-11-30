@@ -78,7 +78,7 @@
  > 
  ## Testing
  > 
- > With the use of Valgrind, we incorporated the Memcheck tool to find errors and issues with memory leaks. We made sure to use the "valgrind --leak-check=full" for both test executable and moodvie executable. Tests were created for the search strategy, sort strategy, and for the singleton design.
+ > With the use of Valgrind, we incorporated the Memcheck tool to find errors and issues with memory leaks. We made sure to use the `valgrind --leak-check=full` command for both test executable and moodvie executable. Tests were created for the search strategy, sort strategy, and for the singleton design.
  > 
  > 
  > Testing the test executable for memory leaks.
